@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="Default Maven PMD Plugin Ruleset"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+    <description>
+        PMD rules for the jonquil program analysis research project.
+    </description>
+
+    <!-- Exclude test classes -->
+    <exclude-pattern>.*/src/test/.*</exclude-pattern>
+    <!-- Exclude target folder that may contain generated sources -->
+    <exclude-pattern>.*/target/.*</exclude-pattern>
+    <!-- Protobuf generated java sources -->
+    <exclude-pattern>.*/generated/source/proto/.*</exclude-pattern>
+
+    <rule ref="category/java/bestpractices.xml">
+        <exclude name="AvoidReassigningParameters"/>
+        <exclude name="UseVarargs"/>
+        <exclude name="GuardLogStatement"/>
+        <exclude name="ArrayIsStoredDirectly"/>
+    </rule>
+
+    <rule ref="category/java/codestyle.xml/LocalVariableCouldBeFinal"/>
+    <rule ref="category/java/codestyle.xml/MethodArgumentCouldBeFinal"/>
+    <rule ref="category/java/codestyle.xml/UnnecessaryModifier"/>
+
+    <rule ref="category/java/design.xml/FinalFieldCouldBeStatic"/>
+
+    <rule ref="category/java/errorprone.xml/NonStaticInitializer"/>
+    <rule ref="category/java/errorprone.xml/ProperLogger">
+        <properties>
+            <property name="staticLoggerName" value="LOGGER" />
+            <property name="loggerName" value="log" />
+            <property name="loggerClass" value="Logger" />
+        </properties>
+    </rule>
+</ruleset>
