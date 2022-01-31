@@ -53,6 +53,7 @@
                         <ruleset>/pmd/pmd.xml</ruleset>
                     </rulesets>
                     <failOnViolation>true</failOnViolation>
+                    <includeTests>true</includeTests>
                 </configuration>
                 <executions>
                     <execution>
